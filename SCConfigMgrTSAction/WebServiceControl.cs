@@ -50,6 +50,7 @@ namespace SCConfigMgrTSAction
             LoadControlsFromProperty();
 
             ControlsValidator.AddControl((Control)textBoxURL, new ControlDataStateEvaluator(ValidateURL), "Enter a valid URL for the web service. Should start with 'http://' or 'https://' and end with '.asmx'");
+            ControlsValidator.AddControl((Control)textBoxMethod, new ControlDataStateEvaluator(ValidateMethod), "Empty method selection, validate the URL, load methods from web service and make a selection");
             ControlsValidator.AddControl((Control)textBoxParam, new ControlDataStateEvaluator(ValidateParams), "Invalid format input detected, supported input could be e.g. 'param1','param2' with the following special characters '_-.' allowed");
             ControlsValidator.ValidateAll();
 
@@ -64,6 +65,16 @@ namespace SCConfigMgrTSAction
                 {
                     return ControlDataState.Valid;
                 }
+            }
+
+            return ControlDataState.Invalid;
+        }
+
+        private ControlDataState ValidateMethod()
+        {
+            if (!String.IsNullOrEmpty(textBoxMethod.Text))
+            {
+                return ControlDataState.Valid;
             }
 
             return ControlDataState.Invalid;
