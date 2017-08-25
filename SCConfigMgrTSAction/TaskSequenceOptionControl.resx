@@ -117,25 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ActionOptionPageTitle" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="DefaultDisplay_PromptTSVariableControl" xml:space="preserve">
-    <value>Prompt Task Sequence Variable</value>
-  </data>
-  <data name="DefaultDisplay_RunPowerShellScriptInlineControl" xml:space="preserve">
-    <value>Run PowerShell Script Inline</value>
-  </data>
-  <data name="DefaultDisplay_WebServiceControl" xml:space="preserve">
-    <value>Invoke Web Service Method</value>
-  </data>
-  <data name="PromptTSVariableControl" xml:space="preserve">
-    <value>Prompt Task Sequence Variable</value>
-  </data>
-  <data name="RunPowerShellScriptInlineControl" xml:space="preserve">
-    <value>Run PowerShell Script Inline</value>
-  </data>
-  <data name="WebServiceControl" xml:space="preserve">
-    <value>Invoke Web Service Method</value>
-  </data>
 </root>

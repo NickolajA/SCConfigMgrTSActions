@@ -20,4 +20,13 @@ namespace SCConfigMgrTSAction
             this.Title = Properties.Resources.ActionOptionPageTitle;
         }
     }
+
+    public class PromptTSVariableOptionControl : TaskSequenceOptionControl
+    {
+        public PromptTSVariableOptionControl(SmsPageData data) : base(data)
+        {
+            //' Set title for Option page from Resources
+            this.Title = Properties.Resources.ActionOptionPageTitle;
+        }
+    }
 }

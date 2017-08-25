@@ -70,11 +70,47 @@ namespace SCConfigMgrTSAction.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prompt Task Sequence Variable.
+        /// </summary>
+        internal static string DefaultDisplay_PromptTSVariableControl {
+            get {
+                return ResourceManager.GetString("DefaultDisplay_PromptTSVariableControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run PowerShell Script Inline.
+        /// </summary>
+        internal static string DefaultDisplay_RunPowerShellScriptInlineControl {
+            get {
+                return ResourceManager.GetString("DefaultDisplay_RunPowerShellScriptInlineControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invoke Web Service Method.
         /// </summary>
         internal static string DefaultDisplay_WebServiceControl {
             get {
                 return ResourceManager.GetString("DefaultDisplay_WebServiceControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prompt Task Sequence Variable.
+        /// </summary>
+        internal static string PromptTSVariableControl {
+            get {
+                return ResourceManager.GetString("PromptTSVariableControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run PowerShell Script Inline.
+        /// </summary>
+        internal static string RunPowerShellScriptInlineControl {
+            get {
+                return ResourceManager.GetString("RunPowerShellScriptInlineControl", resourceCulture);
             }
         }
         

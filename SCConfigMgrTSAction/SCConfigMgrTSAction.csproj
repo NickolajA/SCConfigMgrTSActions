@@ -75,7 +75,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="WebServiceControlOption.cs">
+    <Compile Include="PromptTSVariableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PromptTSVariableControl.Designer.cs">
+      <DependentUpon>PromptTSVariableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RunPowerShellScriptInlineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RunPowerShellScriptInlineControl.Designer.cs">
+      <DependentUpon>RunPowerShellScriptInlineControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaskSequenceOptionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WebServiceControl.cs">
@@ -88,19 +100,25 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="PromptTSVariableControl.resx">
+      <DependentUpon>PromptTSVariableControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RunPowerShellScriptInlineControl.resx">
+      <DependentUpon>RunPowerShellScriptInlineControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WebServiceControl.resx">
       <DependentUpon>WebServiceControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WebServiceControlOption.resx">
-      <DependentUpon>WebServiceControlOption.cs</DependentUpon>
+    <EmbeddedResource Include="TaskSequenceOptionControl.resx">
+      <DependentUpon>TaskSequenceOptionControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\warning.ico" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

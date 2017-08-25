@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.ConfigurationManagement.AdminConsole;
 using Microsoft.ConfigurationManagement.AdminConsole.TaskSequenceEditor;
-using SCConfigMgrTSAction.Properties;
 using System.Web.Services.Description;
 using System.Net;
 using System.IO;
@@ -82,7 +81,7 @@ namespace SCConfigMgrTSAction
 
         private ControlDataState ValidateParams()
         {
-            string pattern = @"^('[a-zA-Z0-9-_. ]+')(\s*)(,'\s*[a-zA-Z0-9-_. ]+')*$";
+            string pattern = @"^('[a-zA-Z0-9%-_. ]+')(\s*)(,'\s*[a-zA-Z0-9%-_. ]+')*$";
             Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
 
             if (textBoxParam.Text.Length >= 2)

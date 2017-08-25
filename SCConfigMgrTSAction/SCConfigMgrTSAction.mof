@@ -1,0 +1,54 @@
+#pragma autorecover  
+
+#pragma namespace("\\\\.\\root")  
+
+// SMS Root Storage  
+instance of __Namespace  
+{  
+    Name = "SMS";  
+};  
+
+#pragma namespace("\\\\.\\root\\SMS")  
+
+// Configuration Manager database name for this computer.  
+instance of __Namespace  
+{  
+    Name = "site_P01";  
+};  
+
+#pragma namespace("\\\\.\\root\\SMS\\site_P01")  
+
+#pragma classflags("forceupdate")  
+
+[   CommandLine("smsswd.exe /run: %SYSTEMROOT%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -Command \"& {(New-WebServiceProxy -Uri '%1').%2(%3)}\""),
+    ActionCategory("SCConfigMgr,7,1"),  
+    ActionName{"SCConfigMgrTSAction.dll", "SCConfigMgrTSAction.Properties.Resources", "WebServiceControl"},  
+    ActionUI{"SCConfigMgrTSAction.dll", "SCConfigMgrTSAction", "WebServiceControl", "WebServiceOptionControl"}  
+]
+	
+class SCConfigMgr_InvokeWebService : SMS_TaskSequence_Action  
+{
+    [Not_Null, CommandLineArg(1)]
+    string          WebServiceURL;  
+
+    [Not_Null, CommandLineArg(2)]  
+    string          WebServiceMethodName;
+	
+    [Not_Null, CommandLineArg(3)]  
+    string          WebServiceParams;		
+};
+
+[   CommandLine("smsswd.exe /run: %SYSTEMROOT%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -Command \"& {(New-WebServiceProxy -Uri '%1').%2(%3)}\""),
+    ActionCategory("SCConfigMgr,7,1"),  
+    ActionName{"SCConfigMgrTSAction.dll", "SCConfigMgrTSAction.Properties.Resources", "PromptTSVariableControl"},  
+    ActionUI{"SCConfigMgrTSAction.dll", "SCConfigMgrTSAction", "PromptTSVariableControl", "PromptTSVariableOptionControl"}  
+]
+	
+class SCConfigMgr_PromptTSVariable : SMS_TaskSequence_Action  
+{
+    [Not_Null, CommandLineArg(1)]
+    string          TaskSequenceVariableName;  
+
+    [Not_Null, CommandLineArg(2)]  
+    string          MessageText;
+};  
