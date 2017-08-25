@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelVarName = new System.Windows.Forms.Label();
-            this.textBoxVarName = new System.Windows.Forms.TextBox();
+            this.textBoxScript = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -49,16 +49,18 @@
             this.labelVarName.TabIndex = 29;
             this.labelVarName.Text = "PowerShell script:";
             // 
-            // textBoxVarName
+            // textBoxScript
             // 
-            this.textBoxVarName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxVarName.Location = new System.Drawing.Point(24, 238);
-            this.textBoxVarName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxVarName.Multiline = true;
-            this.textBoxVarName.Name = "textBoxVarName";
-            this.textBoxVarName.Size = new System.Drawing.Size(518, 280);
-            this.textBoxVarName.TabIndex = 28;
+            this.textBoxScript.Location = new System.Drawing.Point(24, 238);
+            this.textBoxScript.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxScript.Multiline = true;
+            this.textBoxScript.Name = "textBoxScript";
+            this.textBoxScript.Size = new System.Drawing.Size(518, 280);
+            this.textBoxScript.TabIndex = 28;
+            this.textBoxScript.TextChanged += new System.EventHandler(this.DirtyControl_TextChanged);
             // 
             // label1
             // 
@@ -141,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelVarName);
-            this.Controls.Add(this.textBoxVarName);
+            this.Controls.Add(this.textBoxScript);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.textBoxName);
@@ -159,7 +161,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelVarName;
-        private System.Windows.Forms.TextBox textBoxVarName;
+        private System.Windows.Forms.TextBox textBoxScript;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.TextBox textBoxName;

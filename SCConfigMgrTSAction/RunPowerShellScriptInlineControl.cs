@@ -43,34 +43,43 @@ namespace SCConfigMgrTSAction
 
             //' Initialize default values for controls in the property manager
             LoadDefaultPropertyValues();
+
+            //' Load existing values from property manager
             LoadControlsFromProperty();
 
 
             this.Initialized = true;
         }
 
-        private void ControlsToProperty()
+        private void SetPropertyFromControls()
         {
             PropertyManager["Name"].StringValue = textBoxName.Text;
             PropertyManager["Description"].StringValue = textBoxDescription.Text;
+            PropertyManager["ScriptBlock"].StringValue = textBoxScript.Text;
         }
 
         private void LoadControlsFromProperty()
         {
             textBoxName.Text = PropertyManager["Name"].StringValue;
             textBoxDescription.Text = PropertyManager["Description"].StringValue;
+            textBoxScript.Text = PropertyManager["ScriptBlock"].StringValue;
         }
 
         private void LoadDefaultPropertyValues()
         {
             if (PropertyManager["Name"].ObjectValue == null)
             {
-                PropertyManager["Name"].StringValue = "Invoke Web Service Method";
+                PropertyManager["Name"].StringValue = "Run PowerShell Script Inline";
             }
 
             if (PropertyManager["Description"].ObjectValue == null)
             {
                 PropertyManager["Description"].StringValue = string.Empty;
+            }
+
+            if (PropertyManager["ScriptBlock"].ObjectValue == null)
+            {
+                PropertyManager["ScriptBlock"].StringValue = string.Empty;
             }
         }
 
@@ -87,7 +96,7 @@ namespace SCConfigMgrTSAction
             }
 
             //' Push changes from the controls to PropertyManager
-            ControlsToProperty();
+            SetPropertyFromControls();
 
             return base.ApplyChanges(out errorControl, out showError);
         }
@@ -114,7 +123,8 @@ namespace SCConfigMgrTSAction
 
             //' Check if control values needs to be updated
             if (string.Equals(this.PropertyManager["Name"].StringValue, this.textBoxName.Text, StringComparison.OrdinalIgnoreCase) == false ||
-                string.Equals(this.PropertyManager["Description"].StringValue, this.textBoxDescription.Text, StringComparison.OrdinalIgnoreCase) == false)
+                string.Equals(this.PropertyManager["Description"].StringValue, this.textBoxDescription.Text, StringComparison.OrdinalIgnoreCase) == false ||
+                string.Equals(this.PropertyManager["ScriptBlock"].StringValue, this.textBoxScript.Text, StringComparison.OrdinalIgnoreCase) == false)
             {
                 dirty = true;
             }

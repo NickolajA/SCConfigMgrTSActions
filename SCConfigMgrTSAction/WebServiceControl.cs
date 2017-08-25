@@ -46,6 +46,8 @@ namespace SCConfigMgrTSAction
 
             //' Initialize default values for controls in the property manager
             LoadDefaultPropertyValues();
+
+            //' Load existing values from property manager
             LoadControlsFromProperty();
 
             ControlsValidator.AddControl((Control)textBoxURL, new ControlDataStateEvaluator(ValidateURL), "Enter a valid URL for the web service. Should start with 'http://' or 'https://' and end with '.asmx'");
@@ -169,7 +171,7 @@ namespace SCConfigMgrTSAction
             return methodNames;
         }
 
-        private void ControlsToProperty()
+        private void SetPropertyFromControls()
         {
             PropertyManager["Name"].StringValue = textBoxName.Text;
             PropertyManager["Description"].StringValue = textBoxDescription.Text;
@@ -233,7 +235,7 @@ namespace SCConfigMgrTSAction
             }
 
             //' Push changes from the controls to PropertyManager
-            ControlsToProperty();
+            SetPropertyFromControls();
 
             return base.ApplyChanges(out errorControl, out showError);
         }

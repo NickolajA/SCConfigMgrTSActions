@@ -49,7 +49,7 @@ namespace SCConfigMgrTSAction
             this.Initialized = true;
         }
 
-        private void ControlsToProperty()
+        private void SetPropertyFromControls()
         {
             PropertyManager["Name"].StringValue = textBoxName.Text;
             PropertyManager["Description"].StringValue = textBoxDescription.Text;
@@ -87,7 +87,7 @@ namespace SCConfigMgrTSAction
             }
 
             //' Push changes from the controls to PropertyManager
-            ControlsToProperty();
+            SetPropertyFromControls();
 
             return base.ApplyChanges(out errorControl, out showError);
         }
